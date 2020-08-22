@@ -22,21 +22,18 @@ export const getMaxNum = (teamName: string): number => {
     case 'gen': return 500;
     default: return 200;
   }
-}
+};
 
 export const getCurrentNum = async (teamName: string): Promise<number> => {
   // ... get current number of people in the room
   const dummyNum = 100
   return dummyNum;
-}
+};
 
-export const getRandomPosition = (
-  width: number,
-  height: number,
-  windowWidth: number,
-  windowHeight: number
-) => {
-  const randWidth = Math.random() * (windowWidth - width);
-  const randHeight = Math.random() * (windowHeight - height);
-  return [randWidth, randHeight];
-}
+export const addRem = (args: string[]): number => {
+  let result: number = 0;
+  for (let i = 0; i < args.length; i++) {
+    result += Number(args[i].slice(0, -3));
+  }
+  return result;
+};

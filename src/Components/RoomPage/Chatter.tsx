@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+export const chatterHeight = '6rem';
+
 const StyledForm = styled.form`
-  height: 6rem;
+  height: ${chatterHeight};
   margin: 0;
 `;
 

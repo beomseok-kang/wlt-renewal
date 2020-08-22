@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects';
 
-export const createNumPeopleSaga = (type: String, promiseCreator: any) => {
+export const createNumPeopleSaga = (type: string, promiseCreator: any) => {
   const [SUCCESS, ERROR] = [`${type}_SUCCESS`, `${type}_ERROR`];
 
   return function* (action: any) {

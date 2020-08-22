@@ -1,7 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import useComponentSize from '@rehooks/component-size';
-import { getRandomPosition } from '../../lib/funcLib';
 
 const StyledText = styled.div`
   font-size: 2rem;
@@ -13,19 +11,17 @@ const StyledText = styled.div`
 
 type ChatTextProps = {
   chat: string;
+  left: number;
+  top: number;
 }
 
 function ChatText({
-  chat
+  chat,
+  left,
+  top
 }: ChatTextProps) {
   const [show, setShow] = useState(true);
-  let ref = useRef(null);
-  let size = useComponentSize(ref);
-  let { width, height } = size;
-  const frame = document.querySelector('iframe');
-  const fh = frame?.offsetHeight;
-  const fw = frame?.offsetWidth;
-  const [randW, randH] = getRandomPosition(width, height, fh || 0, fw || 0);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShow(false);
@@ -33,7 +29,9 @@ function ChatText({
     return () => clearTimeout(timer);
   });
 
-  return show ? <StyledText style={{left: randW, top: randH}} ref={ref}>{chat}</StyledText> : null;
+  return show 
+    ? <StyledText style={{left, top}}>{chat}</StyledText>
+    : null;
 }
 
 export default ChatText;

@@ -5,6 +5,7 @@ import ChatterContainer from '../Containers/RoomPage/ChatterContainer';
 import ChatWrapperContainer from '../Containers/RoomPage/ChatWrapperContainer';
 import { useDispatch } from 'react-redux';
 import { removeAllChat } from '../Modules/chat';
+import RoomHeaderContainter from '../Containers/RoomPage/RoomHeaderContainer';
 
 const StyledPageWrapper = styled.div`
   width: 100%;
@@ -22,6 +23,7 @@ function RoomPage({ match }: any) {
   const _buildBody = (
     <>
       <StyledPageWrapper>
+        <RoomHeaderContainter />
         <ChatWrapperContainer />
         <ChatterContainer />
       </StyledPageWrapper>
