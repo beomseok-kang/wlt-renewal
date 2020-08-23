@@ -14,7 +14,7 @@ const StyledHeader = styled.header`
 `;
 
 function RoomHeader() {
-  return <StyledHeader>Hello World!</StyledHeader>
+  return <StyledHeader>Hello World! 12:38</StyledHeader>
 };
 
 export default RoomHeader;
