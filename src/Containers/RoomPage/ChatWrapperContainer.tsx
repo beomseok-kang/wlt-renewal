@@ -3,8 +3,6 @@ import YoutubeContainer from './YoutubeContainer';
 import ChatWrapper from '../../Components/RoomPage/ChatWrapper';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../Modules';
-import { appendChat } from '../../Modules/chat';
-import cryptoRandomString from 'crypto-random-string';
 import { getWindowDimensions } from '../../lib/sizeAndPositioning';
 import { windowSize, updateWindowSize } from '../../Modules/window';
 
@@ -28,16 +26,8 @@ function ChatWrapperContainer() {
   const size = useSize();
 
   useEffect(() => {
-    const hello = setInterval(() => {
-      const randomString = cryptoRandomString({ length: 10 });
-      dispatch(appendChat('안녕하세요.', randomString));
-    }, 1000);
     dispatch(updateWindowSize(size));
-
-    return () => {
-      clearInterval(hello);
-    };
-  }, [chat, size, dispatch]);
+  }, [size, dispatch]);
 
   return (
     <ChatWrapper>
@@ -47,4 +37,4 @@ function ChatWrapperContainer() {
   );
 }
 
-export default ChatWrapperContainer;
+export default React.memo(ChatWrapperContainer);

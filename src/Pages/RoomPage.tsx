@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import teams from '../teams.json';
 import styled from 'styled-components';
-import ChatterContainer from '../Containers/RoomPage/ChatterContainer';
-import ChatWrapperContainer from '../Containers/RoomPage/ChatWrapperContainer';
 import { useDispatch } from 'react-redux';
 import { removeAllChat } from '../Modules/chat';
 import RoomHeaderContainter from '../Containers/RoomPage/RoomHeaderContainer';
+import ChatSocketContainer from '../Containers/RoomPage/ChatSocketContainer';
 
 const StyledPageWrapper = styled.div`
   width: 100%;
@@ -24,8 +23,7 @@ function RoomPage({ match }: any) {
     <>
       <StyledPageWrapper>
         <RoomHeaderContainter />
-        <ChatWrapperContainer />
-        <ChatterContainer />
+        <ChatSocketContainer />
       </StyledPageWrapper>
     </>
   );

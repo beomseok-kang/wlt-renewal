@@ -3,7 +3,7 @@ import Youtube from '../../Components/RoomPage/Youtube';
 
 function YoutubeContainer() {
 
-  const dummyUrl = 'https://www.youtube.com/embed/quFzj55OHyk';
+  const dummyUrl = 'https://www.youtube.com/embed/gyTEudfvEo0';
   
 
   return (
