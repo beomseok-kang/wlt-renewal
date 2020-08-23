@@ -18,7 +18,7 @@ function ChatSocketContainer({ team }: ChatSocketContainerProps) {
     transportOptions: {
       polling: {
         extraHeaders: {
-          team
+          'team': team
         }
       }
     }
