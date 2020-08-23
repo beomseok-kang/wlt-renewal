@@ -8,7 +8,7 @@ type ChatterContainerProps = {
   team: string
 }
 
-function ChatterContainer({ socket, team }: ChatterContainerProps) {
+function ChatterContainer({ socket }: ChatterContainerProps) {
   const [chat, setChat] = useState('');
   const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChat(event.target.value);
@@ -17,7 +17,7 @@ function ChatterContainer({ socket, team }: ChatterContainerProps) {
     event.preventDefault();
     if (chat) {
       const id = ranStr({ length: 10 });
-      const data: ChatSocketData = { chat, id, team };
+      const data: ChatSocketData = { chat, id };
       socket.emit('chat', data);
     }
     setChat('');
