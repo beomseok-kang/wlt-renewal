@@ -19,7 +19,7 @@ sagaMiddleware.run(rootSaga);
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router basename="/wlt-renewal">
         <App />
       </Router>
     </Provider>
