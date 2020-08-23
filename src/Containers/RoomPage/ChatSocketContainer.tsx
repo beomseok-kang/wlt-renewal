@@ -15,13 +15,6 @@ function ChatSocketContainer({ team }: ChatSocketContainerProps) {
 
   const socket = io.connect(ENDPOINT, {
     path: '/socket',
-    transportOptions: {
-      polling: {
-        extraHeaders: {
-          'team': team
-        }
-      }
-    }
   });
   socket.on('new-chat', ({ chat, id }: ChatSocketData) => {
     dispatch(appendChat(chat, id));
