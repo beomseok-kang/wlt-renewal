@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import ranStr from 'crypto-random-string';
 import Chatter from '../../Components/RoomPage/Chatter';
+import { ChatSocketData } from '../../api/socket';
 
 type ChatterContainerProps = {
-  socket: SocketIOClient.Socket
+  socket: SocketIOClient.Socket;
+  team: string
 }
 
-function ChatterContainer({ socket }: ChatterContainerProps) {
+function ChatterContainer({ socket, team }: ChatterContainerProps) {
   const [chat, setChat] = useState('');
   const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChat(event.target.value);
@@ -15,7 +17,8 @@ function ChatterContainer({ socket }: ChatterContainerProps) {
     event.preventDefault();
     if (chat) {
       const id = ranStr({ length: 10 });
-      socket.emit('chat', { chat, id });
+      const data: ChatSocketData = { chat, id, team };
+      socket.emit('chat', data);
     }
     setChat('');
   }

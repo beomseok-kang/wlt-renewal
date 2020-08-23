@@ -16,9 +16,11 @@ export const getNumPeopleInRoom = async ():Promise<numPeople> => {
   return dummyNumPeople;
 };
 
-export const ENDPOINT = "http://52.78.109.45:80/room";
+export const ENDPOINT = "http://localhost:80/room";
+//"http://52.78.109.45:80/room"
 
 export type ChatSocketData = {
   chat: string,
-  id: string
+  id: string,
+  team: string
 };

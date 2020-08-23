@@ -6,7 +6,11 @@ import { useDispatch } from 'react-redux';
 import { appendChat } from '../../Modules/chat';
 import ChatterContainer from './ChatterConatiner';
 
-function ChatSocketContainer() {
+type ChatSocketContainerProps = {
+  team: string;
+}
+
+function ChatSocketContainer({ team }: ChatSocketContainerProps) {
   const dispatch = useDispatch();
 
   const socket = io.connect(ENDPOINT, { path: '/socket' });
@@ -24,7 +28,7 @@ function ChatSocketContainer() {
   return (
     <>
       <ChatWrapperContainer />
-      <ChatterContainer socket={socket}/>
+      <ChatterContainer team={team} socket={socket}/>
     </>
   )
 }

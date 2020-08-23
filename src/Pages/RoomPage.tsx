@@ -23,7 +23,7 @@ function RoomPage({ match }: any) {
     <>
       <StyledPageWrapper>
         <RoomHeaderContainter />
-        <ChatSocketContainer />
+        <ChatSocketContainer team={team}/>
       </StyledPageWrapper>
     </>
   );
