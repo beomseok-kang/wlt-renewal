@@ -16,7 +16,7 @@ export const getNumPeopleInRoom = async ():Promise<numPeople> => {
   return dummyNumPeople;
 };
 
-const developing = true;
+const developing = false;
 
 export const ENDPOINT = developing
   ? "http://localhost:80/room"
