@@ -14,7 +14,7 @@ function ChatSocketContainer({ team }: ChatSocketContainerProps) {
   const dispatch = useDispatch();
 
   const socket = io.connect(ENDPOINT, {
-    path: '/socket',
+    path: '/socket/room',
     query: `team=${team}`
   });
   socket.on('new-chat', ({ chat, id }: ChatSocketData) => {
