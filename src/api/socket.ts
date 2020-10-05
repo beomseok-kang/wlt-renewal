@@ -19,7 +19,7 @@ export const getNumPeopleInRoom = async ():Promise<numPeople> => {
 const developing = false;
 
 export const ENDPOINT = developing
-  ? "http://localhost:80/room"
+  ? "http://localhost:8000/room"
   : "http://52.78.109.45:80/room";
 
 export type ChatSocketData = {
